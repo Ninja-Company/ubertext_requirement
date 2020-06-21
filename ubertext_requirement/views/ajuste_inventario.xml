@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+    <!--Agregar campo de Codigo de Barra al reporte-->
+    <template id ="ajuste_inventario_ubertex" inherit_id="stock.report_inventory">
+    <xpath expr="//th[@groups='stock.group_production_lot']" position="before">
+    <th class="text-left"><span>Código de Barras</span></th>
+    <th class="text-left"><span>Cantidad Teórica</span></th>
+    <th class="text-left"><span>Cantidad Real</span></th>
+    </xpath>
+    <xpath expr="//span[@t-field='line.product_id']" position="after">
+    <tr t-foreach="o.line_ids" t-as="line">
+    <td><span t-field="line.product_id.barcode"/></td>
+    </tr>
+    </xpath> 
+    </template>
+    </data>
+    <!--Campo Marca en el formulario-->
+    <record id="stock_inventory_form_inherit" model="ir.ui.view">
+    <field name="name">custom.stock.inventory.form.inherit</field>
+    <field name="model">stock.inventory</field>
+    <field name="inherit_id" ref="stock.view_inventory_form"/>
+    <field name="arch" type="xml">
+    <xpath expr="//field[@name='line_ids']//field[@name='product_id']" position="after">
+    <field name="barcode2"/>
+    </xpath>
+    </field>
+    </record>
+    
+</odoo>

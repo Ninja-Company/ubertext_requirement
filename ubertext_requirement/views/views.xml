@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="ubertext_requirement.list">
+      <field name="name">ubertext_requirement list</field>
+      <field name="model">ubertext_requirement.ubertext_requirement</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="ubertext_requirement.action_window">
+      <field name="name">ubertext_requirement window</field>
+      <field name="res_model">ubertext_requirement.ubertext_requirement</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="ubertext_requirement.action_server">
+      <field name="name">ubertext_requirement server</field>
+      <field name="model_id" ref="model_ubertext_requirement_ubertext_requirement"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="ubertext_requirement" id="ubertext_requirement.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="ubertext_requirement.menu_1" parent="ubertext_requirement.menu_root"/>
+    <menuitem name="Menu 2" id="ubertext_requirement.menu_2" parent="ubertext_requirement.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="ubertext_requirement.menu_1_list" parent="ubertext_requirement.menu_1"
+              action="ubertext_requirement.action_window"/>
+    <menuitem name="Server to list" id="ubertext_requirement" parent="ubertext_requirement.menu_2"
+              action="ubertext_requirement.action_server"/>
+    -->
+  </data>
+</odoo>
