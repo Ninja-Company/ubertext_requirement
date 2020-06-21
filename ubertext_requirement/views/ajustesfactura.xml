@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+    <!--Firma de Factura-->
+    <template id="ajuste_factura_ubertex" inherit_id="account.report_invoice_document">
+    <xpath expr="//div[@id='total']" position="after">
+        <table border="1" style="width:100%;">
+        <tr style="font-weight:bold;">
+        <img src='/ubertext_requirement/static/src/img/Firma.png'/>
+        </tr>
+        </table>
+    </xpath>
+    <!--Campo marca en Reporte-->
+    <xpath expr="//th[@class='text-left']" position="after">
+    <th class="text-left"><span>Marca</span></th>
+    </xpath>
+    <xpath expr="//td[@name='account_invoice_line_name']" position="after">
+    <td><span t-field="o.invoice_line_ids.marca"/></td>
+    </xpath>
+    </template>
+    </data>
+    <!--Campo Marca en el formulario-->
+    <record id="account_invoice_form_inherit" model="ir.ui.view">
+    <field name="name">custom.account.invoice.form.inherit</field>
+    <field name="model">account.invoice</field>
+    <field name="inherit_id" ref="account.invoice_form"/>
+    <field name="arch" type="xml">
+    <xpath expr="//field[@name='name']" position="after">
+    <field name="marca" string="Marca"/>
+    </xpath>
+    </field>
+    </record>
+</odoo>
